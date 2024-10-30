@@ -12,6 +12,7 @@ const Page = () => {
 
   const fetchPage = useCallback(async () => {
     try {
+      setNotFound(false);
       setLoading(true);
       const {data: page} = await axiosApi.get<ApiPage | null>(`/pages/${pageName}.json`);
       setPage(page);
